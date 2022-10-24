@@ -9,8 +9,17 @@ const submitButton = document.querySelector("#submitButton");
 const resultField = document.querySelector("#resultField");
 
 function calcArea(a: number, b: number, c: number, d: number): number {
+
+    let underSqrt = (a+b-c+d) * (a-b-c+d) * (a+b-c-d) * (b+c+d-a)
+
+    let next = Math.sqrt(underSqrt);
+
+
+    let result = (a + c) * next / (4 * (a - c))
+
+    console.log(result);
     
-    return 3;
+    return result;
 }
 
 submitButton?.addEventListener('click', () => {
