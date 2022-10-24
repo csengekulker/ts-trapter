@@ -13,8 +13,9 @@ const base_c = document.querySelector("#base_c") as HTMLInputElement;
 const side_b = document.querySelector("#side_b") as HTMLInputElement;
 const side_d = document.querySelector("#side_d") as HTMLInputElement;
 
-const submitButton = document.querySelector("#submitButton");
+const submitButton = document.querySelector("#submitButton") as HTMLInputElement;
 const resultField = document.querySelector("#resultField") as HTMLInputElement;
+const resultHeading = document.querySelector("#resultHeading") as HTMLInputElement;
 
 function calcArea(a: number, b: number, c: number, d: number): number {
 
@@ -29,8 +30,12 @@ function calcArea(a: number, b: number, c: number, d: number): number {
 }
 
 function displayResult(result: number) {
+    if (result > 0) {
+        resultField.innerHTML = result.toLocaleString();
+    } else {
+        resultHeading.innerHTML = "Hibas bemeno adatok"
+    }
 
-    resultField.innerHTML = result.toLocaleString();
     
 }
 
@@ -41,9 +46,10 @@ function clearFields() {
     side_d.value = ''
 }
 
-submitButton?.addEventListener('click', () => {
+submitButton.addEventListener('click', () => {
 
     resultField.innerHTML = ''
+    resultHeading.innerHTML = "Eredmény"
 
     let a = Number(base_a.value);
     let c = Number(base_c.value);
@@ -53,11 +59,8 @@ submitButton?.addEventListener('click', () => {
 
     let result = calcArea(a, b, c, d);
 
-    if (result > 0) {
-        displayResult(result);
-        clearFields();
-    } else {
-        console.log("hibas bemeno adatok");
-    }
+    
+    displayResult(result);
+    clearFields();    
 
 })
