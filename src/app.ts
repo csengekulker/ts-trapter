@@ -20,10 +20,16 @@ function calcArea(a: number, b: number, c: number, d: number) {
 
     let underSqrt = (a+b-c+d) * (a-b-c+d) * (a+b-c-d) * (b+c+d-a)
 
+    console.log("gyökalatt", underSqrt);
+
     let next = Math.sqrt(underSqrt);
 
-    let result = (a + c) * next / (4 * (a - c))
+    console.log("gyökötvonva", next);
+    
+    let result: number = (a + c) * next / (4 * Math.abs(a - c))
 
+    console.log("eredmeny:", result);
+    
     resultField.innerHTML = result.toLocaleString();
     
 }
