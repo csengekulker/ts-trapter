@@ -16,22 +16,37 @@ const side_d = document.querySelector("#side_d") as HTMLInputElement;
 const submitButton = document.querySelector("#submitButton");
 const resultField = document.querySelector("#resultField") as HTMLInputElement;
 
-function calcArea(a: number, b: number, c: number, d: number) {
+function calcArea(a: number, b: number, c: number, d: number): number {
 
     let underSqrt = (a+b-c+d) * (a-b-c+d) * (a+b-c-d) * (b+c+d-a)
 
     console.log("gyökalatt", underSqrt);
 
-    let next = Math.sqrt(underSqrt);
+    let sqrt = Math.sqrt(underSqrt);
 
-    console.log("gyökötvonva", next);
+    console.log("gyökötvonva", sqrt);
     
-    let result: number = (a + c) * next / (4 * Math.abs(a - c))
+    let result: number = (a + c) * sqrt / (4 * Math.abs(a - c))
 
     console.log("eredmeny:", result);
     
+
+    return result
+    
+}
+
+function displayResult(result: number) {
+    console.log("displayresult");
+
     resultField.innerHTML = result.toLocaleString();
     
+}
+
+function clearFields() {
+    base_a.value = ''
+    base_c.value = ''
+    side_b.value = ''
+    side_d.value = ''
 }
 
 submitButton?.addEventListener('click', () => {
@@ -41,5 +56,7 @@ submitButton?.addEventListener('click', () => {
     let b = Number(side_b.value);
     let d = Number(side_d.value);
 
-    calcArea(a, b, c, d);
+    let result = calcArea(a, b, c, d);
+    displayResult(result);
+    clearFields();
 })
