@@ -5,16 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
-    "start": "lite-server"
+    "start": "lite-server",
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "lite-server": "^2.6.1"
-  },
   "dependencies": {
+    "lite-server": "^2.6.1",
     "typescript": "^4.8.4"
   }
 }
