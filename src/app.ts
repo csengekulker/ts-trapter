@@ -1,3 +1,13 @@
+/*
+* File: app.ts
+* Author: Balogh Csenge
+* Copyright: 2022, Balogh Csenge
+* Group: Szoft_II_N
+* Date: 2022-10-24
+* Github: https://github.com/csengekulker/
+* Licenc: GNU GPL
+*/
+
 const base_a = document.querySelector("#base_a") as HTMLInputElement;
 const base_c = document.querySelector("#base_c") as HTMLInputElement;
 const side_b = document.querySelector("#side_b") as HTMLInputElement;
